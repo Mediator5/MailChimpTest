@@ -1,3 +1,5 @@
+import nodemailer from "nodemailer";
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method not allowed" });
@@ -13,10 +15,11 @@ export default async function handler(req, res) {
   const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
   const SERVER = process.env.MAILCHIMP_SERVER_PREFIX;
 
-  const url = `https://${SERVER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`;
+  const MAIL_URL = `https://${SERVER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`;
 
   try {
-    const response = await fetch(url, {
+    /* 1️⃣ Add subscriber to Mailchimp */
+    const mcResponse = await fetch(MAIL_URL, {
       method: "POST",
       headers: {
         Authorization: `apikey ${API_KEY}`,
@@ -24,18 +27,39 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         email_address: email,
-        status: "subscribed", // or "pending" for double opt-in
+        status: "subscribed",
         tags: tag ? [tag] : [],
       }),
     });
 
-    const data = await response.json();
+    const mcData = await mcResponse.json();
 
-    if (!response.ok) {
+    if (!mcResponse.ok) {
       return res.status(400).json({
-        message: data.detail || "Mailchimp error",
+        message: mcData.detail || "Mailchimp error",
       });
     }
+
+    /* 2️⃣ Send Gmail notification */
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    });
+
+    await transporter.sendMail({
+      from: `"New Lead" <${process.env.GMAIL_USER}>`,
+      to: "fiyinfolumdtv@gmail.com",
+      subject: "📩 New Form Submission",
+      text: `New lead submitted:\n\nEmail: ${email}\nTag: ${tag || "N/A"}`,
+      html: `
+        <h2>New Form Submission</h2>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Tag:</strong> ${tag || "N/A"}</p>
+      `,
+    });
 
     return res.status(200).json({ success: true });
   } catch (err) {
