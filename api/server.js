@@ -55,7 +55,7 @@ export default async function handler(req, res) {
       subject: "📩 New Form Submission",
       text: `New lead submitted:\n\nEmail: ${email}\nTag: ${tag || "N/A"}`,
       html: `
-        <h2>New Form Submission</h2>
+        <h2>New Form2 Submission</h2>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Tag:</strong> ${tag || "N/A"}</p>
       `,
