@@ -2,19 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Thank You</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="min-h-screen flex items-center justify-center bg-gray-100">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You – Smart Tax IQ</title>
 
-  <div class="bg-white p-8 rounded-xl shadow-md text-center space-y-4">
-    <h1 class="text-2xl font-semibold text-green-600">
-      🎉 Thank you!
-    </h1>
-    <p class="text-gray-700">
-      You’ve been successfully subscribed.
-    </p>
-  </div>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F1C44',
+            accent: '#DDB33C',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-800">
+
+  <!-- MAIN SECTION -->
+  <section class="min-h-screen flex items-center justify-center px-6">
+    <div class="max-w-2xl bg-white rounded-2xl shadow-xl p-10 text-center">
+
+      <!-- ICON -->
+      <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-accent text-primary text-3xl font-bold">
+        ✓
+      </div>
+
+      <!-- HEADLINE -->
+      <h1 class="mt-6 text-3xl font-bold text-primary">
+        Thank You! Your Request Has Been Received
+      </h1>
+
+      <!-- MESSAGE -->
+      <p class="mt-4 text-lg">
+        You’ve taken a smart step toward maximizing your tax return.
+        A <strong>Smart Tax IQ tax specialist</strong> will contact you shortly.
+      </p>
+
+      <!-- WHAT HAPPENS NEXT -->
+      <div class="mt-8 text-left bg-gray-50 rounded-xl p-6">
+        <h2 class="text-xl font-semibold text-primary mb-4 text-center">
+          What Happens Next?
+        </h2>
+
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <span class="text-accent font-bold mr-3">1.</span>
+            <span>Our team reviews your submitted information</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-accent font-bold mr-3">2.</span>
+            <span>A tax expert contacts you within 24 hours</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-accent font-bold mr-3">3.</span>
+            <span>You receive a clear strategy to legally optimize your taxes</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-8">
+        <p class="text-lg mb-4">
+          Want to speed things up?
+        </p>
+        <a href="#"
+          class="inline-block bg-accent text-primary font-semibold px-8 py-3 rounded-lg hover:opacity-90 transition">
+          Book My Consultation Now
+        </a>
+      </div>
+
+      <!-- TRUST -->
+      <p class="mt-8 text-sm text-gray-500">
+        🔒 Your information is secure & confidential  
+        <br />
+        ✔ No pressure • ✔ No hidden fees • ✔ Expert guidance
+      </p>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center text-sm text-gray-500">
+    © 2026 Smart Tax IQ. All rights reserved.
+  </footer>
 
 </body>
 </html>
