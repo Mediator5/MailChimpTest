@@ -30,8 +30,8 @@ export default async function handler(req, res) {
                 status: "subscribed",          // or "pending" for double opt-in
                 tags: tag ? [tag] : [],
                 merge_fields: {
-                    FNAME: firstName || "",
-                    LNAME: lastName || "",
+                    FNAME: fname || "",
+                    LNAME: lname || "",
                     PHONE: phone || "",
                     ETYPE: etype || "",
                 },
