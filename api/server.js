@@ -5,7 +5,7 @@ export default async function handler(req, res) {
         return res.status(405).json({ message: "Method not allowed" });
     }
 
-    const { email, tag } = req.body;
+    const { email, tag, fname, lname, phone, etype } = req.body;
 
     if (!email) {
         return res.status(400).json({ message: "Email is required" });
@@ -27,9 +27,15 @@ export default async function handler(req, res) {
             },
             body: JSON.stringify({
                 email_address: email,
-                status: "subscribed",
+                status: "subscribed",          // or "pending" for double opt-in
                 tags: tag ? [tag] : [],
-            }),
+                merge_fields: {
+                    FNAME: firstName || "",
+                    LNAME: lastName || "",
+                    PHONE: phone || "",
+                    ETYPE: etype || "",
+                },
+            })
         });
 
         const mcData = await mcResponse.json();

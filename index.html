@@ -1,10 +1,157 @@
-<script src="https://cdn.tailwindcss.com"></script>
-<form action="/api/server" method="POST" class="bg-white p-6 rounded-xl shadow-md space-y-4">
-    <input type="email" name="email" required placeholder="Your email" class="w-full px-4 py-2 border rounded-lg" />
+<!DOCTYPE html>
+<html lang="en">
 
-    <input type="hidden" name="tag" value="test tag" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Tax IQ – Maximize Your Tax Refund</title>
 
-    <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
-        Subscribe
-    </button>
-</form>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F1C44',
+                        accent: '#DDB33C',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-800">
+
+    <!-- HERO SECTION -->
+    <section class="bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
+
+            <div>
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                    Get the Maximum Tax Refund You’re Legally Entitled To
+                </h1>
+                <p class="mt-6 text-lg text-gray-200">
+                    Smart Tax IQ helps individuals and businesses reduce tax stress, avoid costly mistakes, and keep
+                    more of what they earn.
+                </p>
+
+                <ul class="mt-6 space-y-3">
+                    <li>✔ Expert-reviewed tax returns</li>
+                    <li>✔ No missed deductions</li>
+                    <li>✔ 100% compliant & secure</li>
+                </ul>
+            </div>
+
+            <!-- FORM -->
+            <div class="bg-white text-gray-800 rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-semibold mb-4 text-primary">
+                    Get Your Free Tax Review
+                </h2>
+
+                <form action="/api/server" method="POST" class="space-y-4">
+                    <input type="hidden" name="tag" value="test tag" />
+                    <input type="text" placeholder="First Name" name="fname"
+                        class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                        required />
+                    <input type="text" placeholder="Last Name" name="lname"
+                        class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                        required />
+                    <input type="email" placeholder="Email Address" name="email"
+                        class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                        required />
+                    <input type="tel" placeholder="Phone Number" name="phone"
+                        class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                        required />
+
+                    <select class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                        name="etype" required>
+                        <option value="" selected disabled>Employment Type</option>
+                        <option value="Employed">Employed</option>
+                        <option value="Self-Employed">Self-Employed</option>
+                        <option value="Small Business Owner">Small Business Owner</option>
+                        <option value="Freelancer">Freelancer</option>
+                    </select>
+
+                    <button type="submit"
+                        class="w-full bg-accent text-primary font-semibold py-3 rounded-lg hover:opacity-90 transition">
+                        Get My Free Review
+                    </button>
+                </form>
+
+                <p class="text-sm text-gray-500 mt-4">
+                    🔒 Your information is secure & confidential
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-primary">
+                Most Taxpayers Overpay — Without Knowing It
+            </h2>
+            <p class="mt-6 text-lg max-w-3xl mx-auto">
+                Complex tax laws and hidden deductions cause people to lose money every year.
+                Smart Tax IQ ensures you don’t leave money on the table.
+            </p>
+        </div>
+    </section>
+
+    <!-- SOLUTION SECTION -->
+    <section class="bg-white py-20">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+
+            <div class="p-8 rounded-xl shadow text-center">
+                <h3 class="text-xl font-semibold text-primary">In-Depth Review</h3>
+                <p class="mt-4">
+                    We analyze your income, deductions, and opportunities thoroughly.
+                </p>
+            </div>
+
+            <div class="p-8 rounded-xl shadow text-center">
+                <h3 class="text-xl font-semibold text-primary">Smart Tax Strategy</h3>
+                <p class="mt-4">
+                    Not just filing — we plan to legally reduce what you owe.
+                </p>
+            </div>
+
+            <div class="p-8 rounded-xl shadow text-center">
+                <h3 class="text-xl font-semibold text-primary">Fast & Secure</h3>
+                <p class="mt-4">
+                    Simple process, strict confidentiality, and quick turnaround.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="bg-primary text-white py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold">
+                Get a Free Tax Review — No Obligation
+            </h2>
+            <p class="mt-4 text-lg text-gray-200">
+                Discover how much you could save with Smart Tax IQ.
+            </p>
+
+            <a href="#"
+                class="inline-block mt-8 bg-accent text-primary font-semibold px-10 py-4 rounded-lg hover:opacity-90 transition">
+                Check My Eligibility
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-100 py-6 text-center text-sm text-gray-500">
+        © 2026 Smart Tax IQ. All rights reserved.
+    </footer>
+
+</body>
+
+</html>
