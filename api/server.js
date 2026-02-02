@@ -14,6 +14,7 @@ export default async function handler(req, res) {
     const SERVER = process.env.MAILCHIMP_SERVER_PREFIX;
 
     const url = `https://${SERVER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`;
+    const TAGS= 'test tag'
 
     try {
         const response = await fetch(url, {
@@ -25,7 +26,7 @@ export default async function handler(req, res) {
             body: JSON.stringify({
                 email_address: email,
                 status: "subscribed", // or "pending" for double opt-in
-                tags: tag ? [tag] : [],
+                tags: TAGS,
             }),
         });
 
